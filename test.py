@@ -6,16 +6,15 @@
 
 
 import os
-import sys
-import IP2Location
 
-database = IP2Location.IP2Location()
+from ip2location import IP2Location
+
+database = IP2Location.IP2Location(os.path.join("data", "IP-COUNTRY.BIN"))
 
 passed = 0
 failed = 0
 test_num = 0
 
-database.open(os.path.join("data", "IP-COUNTRY.BIN"))
 for line in open(os.path.join("data", "country_test_ipv4_data.txt")):
     addr, country_short = line.strip().split()
     rec = database.get_all(addr)
@@ -29,7 +28,7 @@ for line in open(os.path.join("data", "country_test_ipv4_data.txt")):
         else:
             passed += 1
 
-database.open(os.path.join("data", "IPV6-COUNTRY.BIN"))
+database = IP2Location.IP2Location(os.path.join("data", "IPV6-COUNTRY.BIN"))
 for line in open(os.path.join("data", "country_test_ipv6_data.txt")):
     addr, country_short = line.strip().split()
     rec = database.get_all(addr)

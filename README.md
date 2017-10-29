@@ -1,4 +1,15 @@
-# IP2Location 8.0.0
+# IP2Location 9.0.0
+
+Enable Thread safe IPLocation use.
+
+```
+from ip2location import IP2Location
+
+IP_LOCATION = IP2Location.IP2Location(os.path.join(os.path.dirname(os.path.realpath(__file__)), 'IP-COUNTRY.BIN'))
+
+def get_ip(ip):
+   return IP_LOCATION.get_country_short(self.ipaddress)
+```
 
 
 This is a IP2Location Python library that enables the user to find the country, region or state, city, latitude and longitude, US ZIP code, time zone, Internet Service Provider (ISP) or company name, domain name, net speed, area code, weather station code, weather station name, mobile country code (MCC), mobile network code (MNC) and carrier brand, elevation, and usage type by IP address or hostname originates from. The library reads the geo location information

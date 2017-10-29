@@ -5,7 +5,8 @@
 # modify it under the terms of the MIT license
 
 import os
-import IP2Location
+
+from ip2location import IP2Location
 
 database = IP2Location.IP2Location(os.path.join("data", "IPV6-COUNTRY.BIN"))
 
